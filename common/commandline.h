@@ -57,13 +57,27 @@ inline void help(const std::vector<CommandSpec>& commands)
 
 inline std::vector<CommandSpec>::const_iterator findCommand(const std::vector<CommandSpec>& commands, const std::string& command)
 {
-    return std::find_if(commands.begin(), commands.end(), [&command](const CommandSpec& cmd) { return cmd.name == command; });
+    auto partMatch = commands.end();
+    for (auto it = commands.begin(); it != commands.end(); ++it) {
+        if (it->name == command) {
+            return it;
+        } else if (it->name.substr(0, command.size()) == command) {
+            if (partMatch == commands.end()) {
+                partMatch = it;
+            } else {
+                // ambiguous partial match
+                return commands.end();
+            }
+        }
+    }
+    return partMatch;
 }
 
 inline int runCommandLoop(std::vector<CommandSpec> commands)
 {
     commands.push_back({"help", [&](const Args&) { help(commands); }});
     commands.push_back({"quit", [](const Args&) { exit(0); }});
+    commands.push_back({"exit", [](const Args&) { exit(0); }});
 
     char line[100];
     Args args;

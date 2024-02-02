@@ -25,13 +25,14 @@ void demonstrate(int size)
 void testing(void)
 {
     // TODO: Write your unit tests here
-    // You can use the IsSorted method to test the result of your sorting function
+    // You can use the FillRandomArray to generate input data
+    // and the IsSorted method to test the result of your sorting function
 }
 
 void performance(Profiler& profiler, AnalysisCase whichCase)
 {
     // TODO: Write your performance analysis here, as explained in the readme
-    // You should use profiler.createOperation to pass to each sorting function
+    // You should use profiler.createOperation to pass the counter to each sorting function
 }
 
 void benchmark(Profiler& profiler, AnalysisCase whichCase)

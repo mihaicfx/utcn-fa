@@ -11127,7 +11127,7 @@ public:
     */
     void reset(const char *newTitle = NULL)
     {
-        if(opcountMap.size() != 0) {
+        if(opcountMap.size() != 0 || timeMap.size() != 0) {
             showReport();
         }
         title = newTitle? newTitle: title;
