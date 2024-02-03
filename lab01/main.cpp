@@ -1,6 +1,6 @@
 #include "direct_sort.h"
 
-#include "util.h"
+#include "commandline.h"
 #include "Profiler.h"
 
 #include <cstdio>
@@ -9,25 +9,25 @@
 
 Profiler profiler("direct sorting");
 
-void demo(const Args& args)
+void demo(const CommandArgs& args)
 {
     const int size = args.empty()? 10: atoi(args[0]);
     demonstrate(size);
 }
 
-void test(const Args& args)
+void test(const CommandArgs& args)
 {
     testing();
 }
 
-void perf(const Args& args)
+void perf(const CommandArgs& args)
 {
     const auto whichCase = args.empty()? AVERAGE: strToCase(args[0]);
     performance(profiler, whichCase);
     profiler.reset();
 }
 
-void bench(const Args& args)
+void bench(const CommandArgs& args)
 {
     const auto whichCase = args.empty()? AVERAGE: strToCase(args[0]);
     benchmark(profiler, whichCase);

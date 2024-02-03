@@ -14,12 +14,12 @@
 #define strtok_s(s, delim, context) strtok_r(s, delim, context)
 #endif
 
-typedef std::vector<const char*> Args;
+typedef std::vector<const char*> CommandArgs;
 
 struct CommandSpec
 {
     std::string name;
-    std::function<void(const Args&)> action;
+    std::function<void(const CommandArgs&)> action;
     std::string description;
 };
 
@@ -75,12 +75,12 @@ inline std::vector<CommandSpec>::const_iterator findCommand(const std::vector<Co
 
 inline int runCommandLoop(std::vector<CommandSpec> commands)
 {
-    commands.push_back({"help", [&](const Args&) { help(commands); }});
-    commands.push_back({"quit", [](const Args&) { exit(0); }});
-    commands.push_back({"exit", [](const Args&) { exit(0); }});
+    commands.push_back({"help", [&](const CommandArgs&) { help(commands); }});
+    commands.push_back({"quit", [](const CommandArgs&) { exit(0); }});
+    commands.push_back({"exit", [](const CommandArgs&) { exit(0); }});
 
     char line[100];
-    Args args;
+    CommandArgs args;
     while (printf("> "), fgets(line, sizeof(line), stdin))
     {
         char *next_token = nullptr;

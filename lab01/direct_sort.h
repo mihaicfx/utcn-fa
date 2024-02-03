@@ -2,7 +2,7 @@
 #define __DIRECT_SORT_H__
 
 #include "Profiler.h"
-#include "util.h"
+#include "commandline.h"
 
 /**
  * @brief Bubble sort algorithm

@@ -1,15 +1,19 @@
 #include "demo.h"
 
-#include "util.h"
+#include "commandline.h"
 #include "Profiler.h"
+
+#define CATCH_CONFIG_RUNNER
+#include "catch2.hpp"
 
 #include <cstdio>
 #include <string>
 
 
 Profiler profiler("direct sorting");
+Catch::Session session;
 
-void demo(const Args& args)
+void demo(const CommandArgs& args)
 {
     if (args.size() != 2) {
         throw std::runtime_error("demo needs two arguments: x and n");
@@ -19,18 +23,18 @@ void demo(const Args& args)
     demonstrate(x, n);
 }
 
-void test(const Args& args)
+void test(const CommandArgs& args)
 {
-    testing();
+    session.run();
 }
 
-void perf(const Args& args)
+void perf(const CommandArgs& args)
 {
     performance(profiler);
     profiler.reset();
 }
 
-void bench(const Args& args)
+void bench(const CommandArgs& args)
 {
     benchmark(profiler);
     profiler.reset();

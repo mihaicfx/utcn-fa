@@ -2,7 +2,6 @@
 #define __DIRECT_SORT_H__
 
 #include "Profiler.h"
-#include "util.h"
 
 /**
  * @brief A function that computes x to the power of n inneficiently
@@ -29,11 +28,6 @@ double fastPow(double x, int n, Operation* op = nullptr);
  * @param n exponent
  */
 void demonstrate(double x, int n);
-
-/**
- * @brief Unit tests for the power functions
- */
-void testing(void);
 
 /**
  * @brief Performance analysis for the power functions

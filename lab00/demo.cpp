@@ -1,5 +1,7 @@
 #include "demo.h"
 
+#include "catch2.hpp"
+
 #include <cstdio>
 #include <cmath>
 
@@ -49,10 +51,8 @@ bool fpAproxEqual(double x, double y)
     return std::fabs(x - y) < (x / 1e10);
 }
 
-void testing(void)
+TEST_CASE("Power functions")
 {
-    printf("Testing power functions... ");
-    bool ok = true;
     for (int i = 0; i < 20; ++i) {
         const double x = (double)(rand()) / RAND_MAX * 10;
         const int n = 1 + (rand() % 10);
@@ -60,14 +60,9 @@ void testing(void)
         const double res1 = slowPow(x, n);
         const double res2 = fastPow(x, n);
 
-        if (!fpAproxEqual(res1, res2)) {
-            ok = false;
-            break;
-        }
+        REQUIRE( fpAproxEqual(res1, res2) );
     }
-    printf("%s\n", ok? "OK": "FAILED");
 }
-
 
 void performance(Profiler& profiler)
 {
