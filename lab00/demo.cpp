@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <cmath>
 
+namespace lab00
+{
 
 double slowPow(double x, int n, Operation* op)
 {
@@ -45,7 +47,7 @@ void demonstrate(double x, int n)
     printf("Fast pow(%g, %d) = %g\n", x, n, fastPow(x, n));
 }
 
-
+// Floating point test for equality using a relative epsilon
 bool fpAproxEqual(double x, double y)
 {
     return std::fabs(x - y) < (x / 1e10);
@@ -53,7 +55,18 @@ bool fpAproxEqual(double x, double y)
 
 TEST_CASE("Power functions")
 {
-    for (int i = 0; i < 20; ++i) {
+    // test some predefined cases
+    REQUIRE( slowPow(3, 2) == 9 );
+    REQUIRE( fastPow(3, 2) == 9 );
+
+    REQUIRE( slowPow(0, 2) == 0 );
+    REQUIRE( fastPow(0, 2) == 0 );
+
+    REQUIRE( slowPow(3, 0) == 1 );
+    REQUIRE( fastPow(3, 0) == 1 );
+
+    // test some random cases
+    for (int i = 0; i < 10; ++i) {
         const double x = (double)(rand()) / RAND_MAX * 10;
         const int n = 1 + (rand() % 10);
 
@@ -104,3 +117,5 @@ void benchmark(Profiler& profiler)
     // we would like the two series to be displayed on the same chart
     profiler.createGroup("time", "slow_pow", "fast_pow");
 }
+
+} // namespace lab00

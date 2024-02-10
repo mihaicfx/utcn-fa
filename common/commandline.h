@@ -14,20 +14,11 @@
 #define strtok_s(s, delim, context) strtok_r(s, delim, context)
 #endif
 
-typedef std::vector<const char*> CommandArgs;
-
-struct CommandSpec
-{
-    std::string name;
-    std::function<void(const CommandArgs&)> action;
-    std::string description;
-};
-
 enum AnalysisCase { AVERAGE, BEST, WORST };
 
 inline AnalysisCase strToCase(const std::string& caseStr)
 {
-    if (caseStr == "avg") {
+    if (caseStr == "avg" || caseStr == "average") {
         return AVERAGE;
     } else if (caseStr == "best") {
         return BEST;
@@ -45,13 +36,27 @@ inline void printError(const std::string& message)
         printf("\n");
 }
 
+
+typedef std::vector<const char*> CommandArgs;
+
+struct CommandSpec
+{
+    std::string name;
+    std::function<void(const CommandArgs&)> action;
+    std::string description;
+};
+
 inline void help(const std::vector<CommandSpec>& commands)
 {
     set_text_color(1, 0);
     printf("The following commands are supported:\n");
     reset_text_color();
+    int maxLength = 0;
     for (const auto& cmd : commands) {
-        printf("  > %s %s\n", cmd.name.c_str(), cmd.description.c_str());
+        maxLength = std::max<int>(maxLength, cmd.name.length());
+    }
+    for (const auto& cmd : commands) {
+        printf("  > %-*s %s\n", maxLength + 1, cmd.name.c_str(), cmd.description.c_str());
     }
 }
 
@@ -75,9 +80,8 @@ inline std::vector<CommandSpec>::const_iterator findCommand(const std::vector<Co
 
 inline int runCommandLoop(std::vector<CommandSpec> commands)
 {
-    commands.push_back({"help", [&](const CommandArgs&) { help(commands); }});
+    commands.push_back({"help", [&](const CommandArgs&) { help(commands); }, "display this message"});
     commands.push_back({"quit", [](const CommandArgs&) { exit(0); }});
-    commands.push_back({"exit", [](const CommandArgs&) { exit(0); }});
 
     char line[100];
     CommandArgs args;

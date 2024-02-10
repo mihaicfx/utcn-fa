@@ -1,5 +1,7 @@
 # Analysis & Comparison of Direct Sorting Methods
 
+For building and running, please refer to the demo.
+
 ## Implementation
 
 You are required to implement correctly and efficiently 3 direct sorting methods (Bubble Sort,

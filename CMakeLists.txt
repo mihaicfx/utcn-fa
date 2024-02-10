@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.5)
+project (fa LANGUAGES CXX)
+
+FILE(GLOB SUBDIRS RELATIVE ${CMAKE_CURRENT_LIST_DIR} lab0*)
+
+FOREACH(subdir ${SUBDIRS})
+  ADD_SUBDIRECTORY(${subdir})
+ENDFOREACH()

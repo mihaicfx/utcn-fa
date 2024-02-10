@@ -4,6 +4,9 @@
 #include "Profiler.h"
 #include "commandline.h"
 
+namespace lab01
+{
+
 /**
  * @brief Bubble sort algorithm
  *
@@ -42,11 +45,6 @@ void insertionSort(int* values, int n, Operation* opAsg = nullptr, Operation* op
 void demonstrate(int size);
 
 /**
- * @brief Unit tests for the sorting algorithms
- */
-void testing(void);
-
-/**
  * @brief Performance analysis for the sorting algorithms
  *
  * @param profiler profiler to use
@@ -61,5 +59,7 @@ void performance(Profiler& profiler, AnalysisCase whichCase);
  * @param whichCase one of AVERAGE, BEST or WORST cases
  */
 void benchmark(Profiler& profiler, AnalysisCase whichCase);
+
+} // namespace lab01
 
 #endif // __DIRECT_SORT_H__

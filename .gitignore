@@ -34,3 +34,4 @@
 # IDE and CMake build folder
 .vscode
 build
+bin

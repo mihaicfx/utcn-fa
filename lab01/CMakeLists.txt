@@ -1,20 +1,21 @@
 cmake_minimum_required(VERSION 3.5)
-project (project01 LANGUAGES CXX)
+project (project00 LANGUAGES CXX)
+
+set(TARGET lab01)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(COMMON_DIR "../common")
-set(SOURCES
-    main.cpp
-    direct_sort.cpp
+file(GLOB SOURCES
+    *.cpp
 )
 file(GLOB HEADERS
     *.h
     ${COMMON_DIR}/*.h
 )
 
-add_executable(lab01 ${SOURCES} ${HEADERS})
+add_executable(${TARGET} ${SOURCES} ${HEADERS})
 
-target_include_directories(lab01 PRIVATE ${COMMON_DIR})
+target_include_directories(${TARGET} PRIVATE ${COMMON_DIR})

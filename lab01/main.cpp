@@ -1,11 +1,15 @@
 #include "direct_sort.h"
 
+#define CATCH_CONFIG_RUNNER
+#include "catch2.hpp"
+
 #include "commandline.h"
 #include "Profiler.h"
 
 #include <cstdio>
 #include <string>
 
+using namespace lab01;
 
 Profiler profiler("direct sorting");
 
@@ -17,7 +21,8 @@ void demo(const CommandArgs& args)
 
 void test(const CommandArgs& args)
 {
-    testing();
+    static Catch::Session session;
+    session.run();
 }
 
 void perf(const CommandArgs& args)
@@ -38,10 +43,10 @@ int main()
 {
     const std::vector<CommandSpec> commands =
     {
-        {"demo", demo},
-        {"test", test},
-        {"perf", perf, "[avg(default)|best|worst]"},
-        {"bench", bench, "[avg(default)|best|worst]"},
+        {"demo", demo, "run demo"},
+        {"test", test, "run unit-tests"},
+        {"perf", perf, "[avg(default)|best|worst] - run performance analysis on selected case"},
+        {"bench", bench, "[avg(default)|best|worst] - run benchmarks on selected case"},
     };
     return runCommandLoop(commands);
 }

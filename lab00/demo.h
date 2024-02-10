@@ -1,7 +1,10 @@
-#ifndef __DIRECT_SORT_H__
-#define __DIRECT_SORT_H__
+#ifndef __DEMO_H__
+#define __DEMO_H__
 
 #include "Profiler.h"
+
+namespace lab00
+{
 
 /**
  * @brief A function that computes x to the power of n inneficiently
@@ -43,4 +46,6 @@ void performance(Profiler& profiler);
  */
 void benchmark(Profiler& profiler);
 
-#endif // __DIRECT_SORT_H__
+} // namespace lab00
+
+#endif // __DEMO_H__

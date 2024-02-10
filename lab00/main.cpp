@@ -9,9 +9,9 @@
 #include <cstdio>
 #include <string>
 
+using namespace lab00;
 
 Profiler profiler("direct sorting");
-Catch::Session session;
 
 void demo(const CommandArgs& args)
 {
@@ -25,6 +25,7 @@ void demo(const CommandArgs& args)
 
 void test(const CommandArgs& args)
 {
+    static Catch::Session session;
     session.run();
 }
 
@@ -44,10 +45,10 @@ int main()
 {
     const std::vector<CommandSpec> commands =
     {
-        {"demo", demo, "x n"},
-        {"test", test},
-        {"perf", perf},
-        {"bench", bench},
+        {"demo", demo, "args: x n - demonstrate x raised to power n"},
+        {"test", test, "run unit-tests"},
+        {"perf", perf, "run performance analysis"},
+        {"bench", bench, "run benchmarks"},
     };
     return runCommandLoop(commands);
 }
