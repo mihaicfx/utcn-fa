@@ -38,6 +38,16 @@ void selectionSort(int* values, int n, Operation* opAsg = nullptr, Operation* op
 void insertionSort(int* values, int n, Operation* opAsg = nullptr, Operation* opCmp = nullptr);
 
 /**
+ * @brief Binary Insertion sort algorithm (insertion sort with binary search)
+ *
+ * @param values array of input values to be sorted
+ * @param n number of values in the input array
+ * @param opAsg optional counter for assignment operations
+ * @param opCmp optional counter for comparison operations
+ */
+void binaryInsertionSort(int* values, int n, Operation* opAsg = nullptr, Operation* opCmp = nullptr);
+
+/**
  * @brief Demo code for the sorting algorithms
  *
  * @param size number of elements to demonstrate on
