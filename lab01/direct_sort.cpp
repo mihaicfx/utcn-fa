@@ -22,6 +22,11 @@ void insertionSort(int* values, int n, Operation* opAsg, Operation* opCmp)
     // TODO: Insertion sort implementation here
 }
 
+void binaryInsertionSort(int* values, int n, Operation* opAsg, Operation* opCmp)
+{
+    // TODO: Binary Insertion sort implementation here
+}
+
 void demonstrate(int size)
 {
     // TODO: Write a small demo for each sorting method here
