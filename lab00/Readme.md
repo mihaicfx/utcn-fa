@@ -1,7 +1,19 @@
-# Introduction to Profiler and lab structure
+# Introduction to Laboratory Structure and Profiler
 
-Implementation of a slow and a fast power function, with demo, tests and performance analysis.
-Contains demonstrative code for using the Profiler in counting operations and measuring the running time.
+## Objective:
+
+- Set up the essential tools and development environment necessary for this laboratory.
+- Discuss the concept of performance profiling and its application in analyzing code efficiency.
+- Introduction to the Profiler tool by using a practical example of two power functions (slow and fast) for measuring execution time, counting operations, and generating performance reports.
+
+### Performance Analysis:
+
+- Uses the Profiler to measure the execution time and operation count of both power functions.
+- The results demonstrate the performance difference between the two implementations.
+
+### Code Testing:
+
+- Provides unit tests to verify the correctness of both power functions.
 
 ## What you can find in this folder:
 1. `Makefile` and `CMakeLists.txt` for console build.
@@ -16,8 +28,9 @@ Contains demonstrative code for using the Profiler in counting operations and me
 
 ### [CMake](https://cmake.org/) build
 
-* Configure by running `cmake -S . -B ./build`
-* Build with `cmake --build ./build`
+* Prerequisite: install `CMake` on your system.
+* Configure by running `cmake -S . -B ./build`.
+* Build with `cmake --build ./build`.
 
 ## Running
 You can find the output binary in the build folder.
