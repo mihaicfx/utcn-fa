@@ -53,7 +53,7 @@ inline void help(const std::vector<CommandSpec>& commands)
     reset_text_color();
     int maxLength = 0;
     for (const auto& cmd : commands) {
-        maxLength = std::max<int>(maxLength, cmd.name.length());
+        maxLength = std::max<int>(maxLength, static_cast<int>(cmd.name.length()));
     }
     for (const auto& cmd : commands) {
         printf("  > %-*s %s\n", maxLength + 1, cmd.name.c_str(), cmd.description.c_str());

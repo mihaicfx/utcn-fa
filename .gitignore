@@ -33,5 +33,7 @@
 
 # IDE and CMake build folder
 .vscode
+.vs
 build
 bin
+x64

@@ -21,7 +21,13 @@
 3. `demo.cpp` containing demo implementation.
 4. `demo.h` containing demo function signatures and doxygen documentation.
 
-## Building
+## Building (linux/wsl)
+
+### Prerequisites:
+- `Gcc` and `Make`: Ensure you have GCC and Make installed. You can check by running `gcc --version`. If GCC is not installed, you can install it on Ubuntu by running:
+    - `sudo apt update`
+    - `sudo apt install build-essential`
+
 ### [Make](https://www.gnu.org/software/make/) build
 
 * Run `make` in current folder.
@@ -31,6 +37,16 @@
 * Prerequisite: install `CMake` on your system.
 * Configure by running `cmake -S . -B ./build`.
 * Build with `cmake --build ./build`.
+
+## Building (windows)
+
+### VisualStudio
+- Open the provided `Msvc.sln` solution and build/run.
+
+### Visual studion Code
+- You need a C++ compiler set up on your system.
+- Follow the guides for a [MingW](https://code.visualstudio.com/docs/cpp/config-mingw) based solution or a [MsVc](https://code.visualstudio.com/docs/cpp/config-msvc) one.
+- Alternatively, you can use [CMake](https://code.visualstudio.com/docs/cpp/cmake-linux) VS Code extension
 
 ## Running
 You can find the output binary in the build folder.
