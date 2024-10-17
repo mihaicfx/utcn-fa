@@ -85,6 +85,7 @@ inline int runCommandLoop(std::vector<CommandSpec> commands)
 
     char line[100];
     CommandArgs args;
+    help(commands);
     while (printf("> "), fgets(line, sizeof(line), stdin))
     {
         char *next_token = nullptr;
