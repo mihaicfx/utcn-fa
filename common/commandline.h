@@ -28,6 +28,19 @@ inline AnalysisCase strToCase(const std::string& caseStr)
     throw std::runtime_error("Invalid case '" + caseStr + "'");
 }
 
+enum ListsCase { FIXED_K, FIXED_N};
+
+inline ListsCase strToCaseLists(const std::string& caseStr)
+{
+    if (caseStr == "fixed_k" || caseStr == "k") {
+        return FIXED_K;
+    }
+    else if (caseStr == "fixed_n" || caseStr == "n") {
+        return FIXED_N;
+    }
+    throw std::runtime_error("Invalid case '" + caseStr + "'");
+}
+
 inline void printError(const std::string& message)
 {
         set_text_color(12, 0);
