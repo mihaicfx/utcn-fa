@@ -11127,10 +11127,10 @@ public:
     */
     void reset(const char *newTitle = NULL)
     {
-        if(opcountMap.size() != 0 || timeMap.size() != 0) {
+        if(opcountMap.size() != 0) {
             showReport();
         }
-        title = newTitle? newTitle: title;
+        title = newTitle? newTitle: "Title";
         groups.clear();
         opcountMap.clear();
         countersDisabled = false;
@@ -11259,13 +11259,13 @@ public:
         char reportName[200];
         time_t crtTime = time(0);
         struct tm now;
-#ifdef PROFILER_WINDOWS
+#ifdef _MSC_VER
         localtime_s(&now, &crtTime);
 #else
         now = *localtime(&crtTime);
 #endif
 
-#ifdef PROFILER_WINDOWS
+#ifdef _MSC_VER
         _snprintf_s(
 #else
         snprintf(
@@ -11280,7 +11280,7 @@ public:
                             now.tm_min,
                             now.tm_sec
         );
-#ifdef PROFILER_WINDOWS
+#ifdef _MSC_VER
         fopen_s(&fout, reportName, "wb");
 #else
         fout = fopen(reportName, "wb");
@@ -11336,7 +11336,7 @@ public:
 			fseek(fout, -(int)(strlen("\n") + 1), SEEK_CUR);
 			fprintf(fout, "\n");
 		}
-
+        
         //next show the groups
         fprintf(fout, "\t},\n\t\"groups\": {\n");
         hasSequences = false;
@@ -11371,7 +11371,9 @@ public:
         ShellExecuteA(NULL, "open", reportName, NULL, NULL, SW_SHOW);
 #elif defined(PROFILER_OSX)
         if(fork() == 0) {
-            execlp("open", "open", reportName);
+            execlp("open", "open", reportName, NULL);
+            perror("open failed");
+            exit(1);
         }
 #endif
         return 0;
@@ -11411,7 +11413,7 @@ public:
         }
         int get() const { return ptrInMap->second; }
     };
-
+    
     OperationCounter createOperation(const char *name, int size)
     {
         return OperationCounter(*this, name, size);
