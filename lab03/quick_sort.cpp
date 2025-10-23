@@ -17,9 +17,10 @@ namespace lab03
         // TODO: Hybridized quick sort implementation here
     }
 
-    void quickSelect(int* values, int n, Operation* opAsg, Operation* opCmp)
+    int quickSelect(int* values, int n, int k, Operation* opAsg, Operation* opCmp)
     {
         // TODO: Quick select implementation here
+		return 0;
     }
 
     void demonstrate(int size)

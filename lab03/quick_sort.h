@@ -30,12 +30,13 @@ namespace lab03
 	/**
 	 * @brief Quick select algorithm
 	 *
-	 * @param values array of input values to be sorted
+	 * @param values array of input values
 	 * @param n number of values in the input array
+	 * @param k kth value to select
 	 * @param opAsg optional counter for assignment operations
 	 * @param opCmp optional counter for comparison operations
 	 */
-		void quickSelect(int* values, int n, Operation* opAsg = nullptr, Operation* opCmp = nullptr);
+	int quickSelect(int* values, int n, int k, Operation* opAsg = nullptr, Operation* opCmp = nullptr);
 
 	/**
 	 * @brief Heap sort algorithm
@@ -64,7 +65,7 @@ namespace lab03
 	void performance(Profiler& profiler, AnalysisCase whichCase);
 
 	/**
-	 * @brief Benchmarking for the sorting algorithms
+	 * @brief Benchmarks the optimal threshold for hybrid quicksort
 	 *
 	 * @param profiler profiler to use
 	 * @param whichCase one of AVERAGE, BEST or WORST cases
