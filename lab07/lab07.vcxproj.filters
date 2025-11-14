@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hash_table.cpp">
+    <ClCompile Include="order_statistics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hash_table.h">
+    <ClInclude Include="order_statistics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common\catch2.hpp">

@@ -18,12 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="merge_lists.cpp">
+    <ClCompile Include="multiway.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="merge_lists.h">
+    <ClInclude Include="multiway.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\common\catch2.hpp">

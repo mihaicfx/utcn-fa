@@ -130,14 +130,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="merge_lists.cpp" />
+    <ClCompile Include="multiway.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common\catch2.hpp" />
     <ClInclude Include="..\common\commandline.h" />
     <ClInclude Include="..\common\console.h" />
     <ClInclude Include="..\common\Profiler.h" />
-    <ClInclude Include="merge_lists.h" />
+    <ClInclude Include="multiway.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
