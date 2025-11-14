@@ -44,6 +44,11 @@ namespace lab05
         return false;
     }
 
+    void demo(void)
+    {
+        // TODO: Implement demo
+    }
+
     void evaluateSearch(int size)
     {
         // TODO: Implement the evaluation for multiple fill factors as described in the readme.

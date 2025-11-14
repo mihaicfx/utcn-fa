@@ -60,6 +60,11 @@ namespace lab05
 	bool remove(HashTable* table, int id);
 
 	/**
+	 * @brief Demonstrates the functionality of the hash table.
+	 */
+	void demo(void);
+
+	/**
 	 * @brief Evaluates the search operation for multiple fill factors.
 	 *
 	 * @param size The size of the hash table.

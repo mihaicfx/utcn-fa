@@ -87,6 +87,11 @@ void remove_cmd(const CommandArgs& args)
     }
 }
 
+void demo_cmd(const CommandArgs& args)
+{
+    demo(args);
+}
+
 void test(const CommandArgs& args)
 {
     static Catch::Session session;
@@ -113,6 +118,7 @@ int main()
         {"insert", insert_cmd, "<id> <name> - insert a new entry"},
         {"search", search_cmd, "<id> - search for an entry by ID"},
         {"remove", remove_cmd, "<id> - remove an entry by ID"},
+        {"demo", demo_cmd, "run a demonstration of the hash table"},
         {"test", test, "run unit-tests"},
         {"perf", perf, "run performance analysis for search"},
         {"perf_del", perf_del, "run performance analysis for search after delete"}
