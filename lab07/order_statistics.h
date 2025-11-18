@@ -1,6 +1,8 @@
 #ifndef __ORDER_STATISTICS_H__
 #define __ORDER_STATISTICS_H__
 
+#include "Profiler.h"
+
 namespace lab07
 {
 	/**
@@ -20,7 +22,7 @@ namespace lab07
 	 * @param n The number of nodes.
 	 * @return The root of the newly created tree.
 	 */
-	OS_Node* buildTree(int n);
+	OS_Node* buildTree(int n, Operation* op = nullptr);
 
 	/**
 	 * @brief Selects the node with the i-th smallest key in the tree.
@@ -28,7 +30,7 @@ namespace lab07
 	 * @param i The rank of the element to find (0-based index).
 	 * @return A pointer to the node with the i-th smallest key, or nullptr if not found.
 	 */
-	OS_Node* osSelect(OS_Node* root, int i);
+	OS_Node* osSelect(OS_Node* root, int i, Operation* op = nullptr);
 
 	/**
 	 * @brief Deletes the node with the i-th smallest key from the tree.
@@ -36,7 +38,7 @@ namespace lab07
 	 * @param i The rank of the element to delete (0-based index).
 	 * @return The root of the modified tree.
 	 */
-	OS_Node* osDelete(OS_Node* root, int i);
+	OS_Node* osDelete(OS_Node* root, int i, Operation* op = nullptr);
 
 	/**
 	 * @brief Pretty prints the tree to the console for visualization.

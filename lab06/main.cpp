@@ -24,11 +24,18 @@ void runTests(const CommandArgs& args)
 //    2   5
 //   / \
 //  1   3
-TreeNode n1 = {1, nullptr, nullptr};
-TreeNode n3 = {3, nullptr, nullptr};
-TreeNode n2 = {2, &n1, &n3};
-TreeNode n5 = {5, nullptr, nullptr};
-TreeNode root = {4, &n2, &n5};
+TreeNode n1 = {1, nullptr, nullptr, nullptr};
+TreeNode n3 = {3, nullptr, nullptr, nullptr};
+TreeNode n2 = {2, &n1, &n3, nullptr};
+TreeNode n5 = {5, nullptr, nullptr, nullptr};
+TreeNode root = {4, &n2, &n5, nullptr}; // root
+
+void setupExampleTreeParents() {
+    n1.parent = &n2;
+    n3.parent = &n2;
+    n2.parent = &root;
+    n5.parent = &root;
+}
 
 void demoRecursiveTraversal(const CommandArgs& args)
 {
@@ -75,6 +82,8 @@ void demoTransformations(const CommandArgs& args)
 
 int main()
 {
+    setupExampleTreeParents();
+
     const std::vector<CommandSpec> commands =
     {
         {"recursive_traversal", demoRecursiveTraversal, "Demo recursive binary tree traversal"},

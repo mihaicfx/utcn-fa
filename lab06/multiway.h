@@ -12,6 +12,7 @@ namespace lab06
 		int key;
 		TreeNode* left;
 		TreeNode* right;
+		TreeNode* parent;
 	};
 
 	/**
