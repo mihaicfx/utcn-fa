@@ -6,19 +6,19 @@
 namespace lab07
 {
 
-	OS_Node* buildTree(int n)
+	OS_Node* buildTree(int n, Operation* op)
 	{
 		// TODO: Implement the buildTree function
 		return nullptr;
 	}
 
-	OS_Node* osSelect(OS_Node* root, int i)
+	OS_Node* osSelect(OS_Node* root, int i, Operation* op)
 	{
 		// TODO: Implement the osSelect function
 		return nullptr;
 	}
 
-	OS_Node* osDelete(OS_Node* root, int i)
+	OS_Node* osDelete(OS_Node* root, int i, Operation* op)
 	{
 		// TODO: Implement the osDelete function
 		return nullptr;
