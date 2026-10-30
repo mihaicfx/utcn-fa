@@ -89,7 +89,7 @@ void remove_cmd(const CommandArgs& args)
 
 void demo_cmd(const CommandArgs& args)
 {
-    demo(args);
+    demo();
 }
 
 void test(const CommandArgs& args)
